@@ -12,7 +12,9 @@ type HuggingFaceError = {
   estimated_time?: number;
 };
 
-const DEFAULT_PLANT_MODEL = "wambugu71/crop_leaf_diseases_vit";
+const HF_MODEL =
+  process.env.HUGGINGFACE_MODEL_ID ||
+  "linkanjarad/mobilenet_v2_1.0_224-plant-disease-identification";
 
 export async function classifyPlantImage(buffer: Buffer, mimeType: string) {
   const apiKey = process.env.HUGGINGFACE_API_KEY;
